@@ -14,7 +14,6 @@ class ProductRepository {
 
   final String apiUrl = dotenv.env['API_URL']!;
 
-
   Future<List<Items>> getProducts({bool forceRefresh = false}) async {
     if (!forceRefresh) {
       final localItems = await db.getAllItems();

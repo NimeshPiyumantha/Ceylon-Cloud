@@ -33,6 +33,9 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.onSecondary,
+              ),
               decoration: InputDecoration(
                 hintText: "Search items...",
                 hintStyle: const TextStyle(
@@ -162,7 +165,14 @@ class _HomeScreenState extends State<HomeScreen> {
               );
             } else if (state is ProductLoaded) {
               if (state.items.isEmpty) {
-                return const Center(child: Text("No items found"));
+                return Center(
+                  child: Text(
+                    "No items found",
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.onSecondary,
+                    ),
+                  ),
+                );
               }
 
               return LayoutBuilder(

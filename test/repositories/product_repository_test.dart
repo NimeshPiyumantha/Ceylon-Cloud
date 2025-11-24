@@ -11,8 +11,6 @@ import 'package:http/http.dart' as http;
 import 'product_repository_test.mocks.dart';
 
 @GenerateMocks([AppDatabase, http.Client])
-
-
 void main() {
   late ProductRepository repository;
   late MockAppDatabase mockDb;
