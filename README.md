@@ -44,11 +44,11 @@ flutter pub get
 
 3. Environment Configuration (.env)
 
-1. This project uses flutter_dotenv to manage sensitive API endpoints. You must configure the environment variables before running the app.
+*  This project uses flutter_dotenv to manage sensitive API endpoints. You must configure the environment variables before running the app.
 
-2. Create a file named .env in the root directory of the project.
+*  Create a file named .env in the root directory of the project.
 
-3. Add the API_URL variable to the file:
+*  Add the API_URL variable to the file:
 ```
 API_URL="Your app url"
 ```
@@ -98,4 +98,28 @@ Run specific test file:
 flutter test test/repositories/product_repository_test.dart
 ```
 
-<!-- ## 📂 Project Structure -->
+## 📂 Project Structure 
+```
+lib/
+├── blocs/              # BLoC logic (Product, Favorites, etc.)
+├── components/         # Reusable UI widgets (ProductCard, CustomAppBar)
+├── database/           # Drift configuration, tables, DAOs, migrations
+├── models/             # Data models and DTOs
+├── repositories/       # Repos: API + local DB coordination
+├── screens/            # UI screens (Home, ProductDetail, Splash)
+├── theme/              # UI themes (font theme + dark theme and light theme)
+├── main.dart           # App entry point
+└── globals.dart        # Global helpers, constants, custom exceptions
+```
+## 📸 Preview
+
+<p align="center">
+  <img src="https://github.com/NimeshPiyumantha/Ceylon-Cloud/blob/master/assets/img.png" width="30%" alt="Screen 1" />
+   <img src="https://github.com/NimeshPiyumantha/Ceylon-Cloud/blob/master/assets/img_1.png" width="30%" alt="Screen 2" />
+   <img src="https://github.com/NimeshPiyumantha/Ceylon-Cloud/blob/master/assets/img_2.png" width="30%" alt="Screen 3" />
+   <img src="https://github.com/NimeshPiyumantha/Ceylon-Cloud/blob/master/assets/img_3.png" width="30%" alt="Screen 4" />
+   <img src="https://github.com/NimeshPiyumantha/Ceylon-Cloud/blob/master/assets/img_4.png" width="30%" alt="Screen 5" />
+   <img src="https://github.com/NimeshPiyumantha/Ceylon-Cloud/blob/master/assets/img_5.png" width="30%" alt="Screen 6" />
+  
+</p>
+
