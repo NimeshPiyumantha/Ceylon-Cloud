@@ -1,9 +1,11 @@
 import 'dart:convert';
+
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
+
 import '../database/app_database.dart';
-import '../models/items.dart';
 import '../globals.dart';
+import '../models/items.dart';
 
 class ProductRepository {
   final AppDatabase db;
@@ -21,7 +23,7 @@ class ProductRepository {
     }
 
     try {
-      final response = await http.get(Uri.parse(apiUrl));
+      final response = await client.get(Uri.parse(apiUrl));
 
       if (response.statusCode == 200) {
         final dynamic responseBody = jsonDecode(response.body);

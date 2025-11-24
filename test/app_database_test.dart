@@ -16,18 +16,18 @@ void main() {
 
   final item1 = Items(
     itemId: 1,
-    barcode: "111",
-    itemName: "Apple",
-    costPrice: 100.0,
-    itemCategory: "Fruit",
+    barcode: "C111",
+    itemName: "Face Cream",
+    costPrice: 750.0,
+    itemCategory: "Cosmetic",
   );
 
   final item2 = Items(
     itemId: 2,
-    barcode: "222",
-    itemName: "Banana",
-    costPrice: 50.0,
-    itemCategory: "Fruit",
+    barcode: "E222",
+    itemName: "Headphones",
+    costPrice: 2500.0,
+    itemCategory: "Electronic",
   );
 
   test('Database starts empty', () async {
@@ -41,8 +41,8 @@ void main() {
     final items = await database.getAllItems();
 
     expect(items.length, 2);
-    expect(items.first.itemName, "Apple");
-    expect(items.last.itemName, "Banana");
+    expect(items.first.itemName, "Face Cream");
+    expect(items.last.itemName, "Headphones");
   });
 
   test('Insert updates existing items on conflict (based on ID)', () async {
@@ -50,29 +50,29 @@ void main() {
 
     final updatedItem1 = Items(
       itemId: 1,
-      barcode: "111",
-      itemName: "Green Apple",
-      costPrice: 120.0,
-      itemCategory: "Fruit",
+      barcode: "C111",
+      itemName: "Moisturizer",
+      costPrice: 900.0,
+      itemCategory: "Cosmetic",
     );
 
     await database.insertOrUpdateItems([updatedItem1]);
 
     final items = await database.getAllItems();
     expect(items.length, 1);
-    expect(items.first.itemName, "Green Apple");
-    expect(items.first.costPrice, 120.0);
+    expect(items.first.itemName, "Moisturizer");
+    expect(items.first.costPrice, 900.0);
   });
 
   test('Search items filters correctly', () async {
     await database.insertOrUpdateItems([item1, item2]);
 
-    final searchResults = await database.searchItems('Ban');
+    final searchResults = await database.searchItems('Head');
 
     expect(searchResults.length, 1);
-    expect(searchResults.first.itemName, 'Banana');
+    expect(searchResults.first.itemName, 'Headphones');
 
-    final emptyResults = await database.searchItems('Orange');
+    final emptyResults = await database.searchItems('Laptop');
     expect(emptyResults, isEmpty);
   });
 }
